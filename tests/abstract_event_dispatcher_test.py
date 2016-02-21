@@ -85,8 +85,9 @@ class AbstractEventDispatcherTest(TestCase, metaclass=ABCMeta):
         listener_2 = TestEventListener()
 
         self.__dispatcher.add_listener('pre.foo', listener_1, -10)
-        self.__dispatcher.add_listener('pre.foo', listener_2)
+        self.assertIsNone(self.__dispatcher.get_listener_priority('pre.foo', listener_2))
 
+        self.__dispatcher.add_listener('pre.foo', listener_2)
         self.assertEqual(-10, self.__dispatcher.get_listener_priority('pre.foo', listener_1))
         self.assertEqual(0, self.__dispatcher.get_listener_priority('pre.foo', listener_2))
         self.assertIsNone(self.__dispatcher.get_listener_priority('pre.bar', listener_2))

@@ -19,6 +19,11 @@ class GenericEventTest(TestCase):
     def test_construct(self):
         self.assertEqual(self.__event, GenericEvent(self.__subject, {'name': 'Event'}))
 
+    def test_construct_no_parameters(self):
+        event = GenericEvent()
+        self.assertEqual({}, event.get_arguments())
+        self.assertIsNone(event.get_subject())
+
     def test_get_arguments(self):
         self.assertEqual({'name': 'Event'}, self.__event.get_arguments())
 
@@ -69,3 +74,7 @@ class GenericEventTest(TestCase):
             data[key] = value
 
         self.assertEqual({'name': 'Event'}, data)
+
+    def test_len(self):
+        event = GenericEvent(self.__subject, {'name': 'Event'})
+        self.assertEqual(1, len(event))
