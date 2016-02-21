@@ -16,8 +16,9 @@ setup(
         url='https://github.com/onema/evee',
         download_url='https://github.com/onema/evee/archive/v%s.tar.gz' % __version__,
         packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
-        tests_require=['pytest', 'mock', 'coverage'],
         zip_safe=True,
+        test_suite='nose.collector',
+        tests_require=['nose', 'coverage'],
         classifiers=[
             'Intended Audience :: Developers',
             'Operating System :: OS Independent',
