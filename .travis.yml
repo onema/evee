@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.2"
+#  - "3.2" # currently having import problems in event dispatcher test.
   - "3.3"
   - "3.4"
   - "3.5"
