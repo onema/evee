@@ -12,6 +12,6 @@ install:
   - pip install coveralls
 # command to run tests
 script:
-  coverage run --source=evee setup.py test
+  coverage run --omit=evee/abstract_event_dispatcher.py,evee/abstract_event_subscriber.py --source=evee setup.py test
 after_success:
   coveralls
