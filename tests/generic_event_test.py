@@ -1,5 +1,5 @@
 from unittest import TestCase
-from evee.generic_event import GenericEvent
+from evee import GenericEvent
 
 
 class GenericEventTest(TestCase):

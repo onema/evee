@@ -1,5 +1,5 @@
 from tests.abstract_event_dispatcher_test import AbstractEventDispatcherTest
-from evee.event_dispatcher import EventDispatcher
+from evee import EventDispatcher
 
 
 class EventDispatcherTest(AbstractEventDispatcherTest):

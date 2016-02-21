@@ -1,9 +1,9 @@
 from unittest import TestCase
 from unittest.mock import Mock
-from evee.event import Event
-from evee.immutable_event_dispatcher import ImmutableEventDispatcher
-from evee.event_dispatcher import EventDispatcher
-from evee.exception import BadMethodCallError
+from evee import Event
+from evee import ImmutableEventDispatcher
+from evee import EventDispatcher
+from evee import BadMethodCallError
 
 
 class ImmutableEventDispatcherTest(TestCase):

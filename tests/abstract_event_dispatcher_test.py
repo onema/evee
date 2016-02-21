@@ -1,8 +1,8 @@
 from abc import ABCMeta
 from abc import abstractmethod
 from unittest import TestCase
-from evee.event import Event
-from evee.abstract_event_subscriber import AbstractEventSubscriber
+from evee import Event
+from evee import AbstractEventSubscriber
 
 
 class AbstractEventDispatcherTest(TestCase, metaclass=ABCMeta):
