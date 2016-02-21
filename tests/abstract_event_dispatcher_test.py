@@ -38,6 +38,9 @@ class AbstractEventDispatcherTest(TestCase, metaclass=ABCMeta):
         self.assertEqual(1, len(self.__dispatcher.get_listeners(self.POST_FOO)))
         self.assertEqual(2, len(self.__dispatcher.get_listeners()))
 
+        self.__dispatcher.add_listener('post.foo', getattr(self.__listener, 'post_foo'))
+        self.assertEqual(2, len(self.__dispatcher.get_listeners()))
+
     def _get_listeners_sorts_by_priority(self):
         listener_1 = TestEventListener()
         listener_2 = TestEventListener()
