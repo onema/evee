@@ -7,6 +7,9 @@ matrix:
   allow_failures:
     - python: "nightly"
 
+# command to install dependencies
+install:
+  - python setup.py install
 # commands to run tests
 script:
   coverage run --omit=evee/abstract_event_dispatcher.py,evee/abstract_event_subscriber.py --source=evee setup.py test
