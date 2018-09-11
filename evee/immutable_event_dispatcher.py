@@ -1,5 +1,13 @@
-from typing import Callable
-from typing import List
+#
+# This file is part of the onema.io evee Package.
+# For the full copyright and license information,
+# please view the LICENSE file that was distributed
+# with this source code.
+#
+# @author Juan Manuel Torres <software@onema.io>
+#
+from typing import Callable, Sequence, Any
+
 from evee.abstract_event_dispatcher import AbstractEventDispatcher
 from evee.abstract_event_subscriber import AbstractEventSubscriber
 from evee.event import Event
@@ -26,7 +34,7 @@ class ImmutableEventDispatcher(AbstractEventDispatcher):
     def remove_subscriber(self, subscriber: AbstractEventSubscriber):
         raise BadMethodCallError('Unmodifiable event dispatcher must not be modified.')
 
-    def get_listeners(self, event_name: str = None) -> List:
+    def get_listeners(self, event_name: str = None) -> Sequence[Callable[[Event, str, Any], Event]]:
         return self.__dispatcher.get_listeners(event_name)
 
     def get_listener_priority(self, event_name: str, listener: Callable) -> int:
