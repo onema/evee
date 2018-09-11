@@ -15,6 +15,6 @@ install:
   - pip install codacy-coverage coverage
 # commands to run tests
 script:
-  coverage run --omit=evee/abstract_event_dispatcher.py,evee/abstract_event_subscriber.py --source=evee setup.py test
+  coverage run xml --source=evee setup.py test
 after_success:
   python-codacy-coverage -r coverage.xml
