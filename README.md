@@ -1,15 +1,16 @@
 evee
 =====
-
+ 
+[![Build Status](https://travis-ci.org/onema/evee.svg?branch=master)](https://travis-ci.org/onema/evee)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/51bb12b95a434798b8044e301659ea85)](https://www.codacy.com/app/onema/evee?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=onema/evee&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/51bb12b95a434798b8044e301659ea85)](https://www.codacy.com/app/onema/evee?utm_source=github.com&utm_medium=referral&utm_content=onema/evee&utm_campaign=Badge_Coverage)
 [![Code Climate](https://codeclimate.com/github/onema/evee/badges/gpa.svg)](https://codeclimate.com/github/onema/evee)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/onema/evee/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/onema/evee/?branch=master)
-[![Build Status](https://travis-ci.org/onema/evee.svg?branch=master)](https://travis-ci.org/onema/evee)
-[![Coverage Status](https://coveralls.io/repos/github/onema/evee/badge.svg?branch=master)](https://coveralls.io/github/onema/evee?branch=master)
 
 Summary
 _______
 
-This is a port for Python `v3.3+` of the Symfony Event Dispatcher `v3.0`.
+This is a port for Python `v3.6+` of the Symfony Event Dispatcher.
 
 This event dispatcher follows a pattern called the ["Mediator" pattern](https://sourcemaking.com/design_patterns/mediator).
 

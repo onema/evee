@@ -1,10 +1,18 @@
-from evee.abstract_event_dispatcher import AbstractEventDispatcher
-from typing import Callable
-from typing import List
-from typing import Sequence
+#
+# This file is part of the onema.io evee Package.
+# For the full copyright and license information,
+# please view the LICENSE file that was distributed
+# with this source code.
+#
+# @author Juan Manuel Torres <software@onema.io>
+#
 from collections import OrderedDict
-from evee.event import Event
+from typing import Callable, Optional, Any
+from typing import Sequence
+
+from evee import AbstractEventDispatcher
 from evee.abstract_event_subscriber import AbstractEventSubscriber
+from evee.event import Event
 
 
 class EventDispatcher(AbstractEventDispatcher):
@@ -31,7 +39,7 @@ class EventDispatcher(AbstractEventDispatcher):
 
         return event
 
-    def add_listener(self, event_name: str = None, listener: Callable = None, priority: int = 0) -> object:
+    def add_listener(self, event_name: str = None, listener: Callable = None, priority: int = 0):
         """
         Adds an event listener that listens on the specified events.
 
@@ -103,7 +111,7 @@ class EventDispatcher(AbstractEventDispatcher):
                 parameters = params if isinstance(params, str) else params[0]
                 self.remove_listener(event_name, getattr(subscriber, parameters))
 
-    def get_listeners(self, event_name: str = None) -> List:
+    def get_listeners(self, event_name: str = None) -> Sequence[Callable[[Event, str, Any], Event]]:
         """
         Gets the listener of a specific event or all listeners stored by
         descending priority.
@@ -124,9 +132,9 @@ class EventDispatcher(AbstractEventDispatcher):
             if event_name not in self.__sorted:
                 self.sort_listeners(event_name)
 
-        return dict([(key, value) for key, value in self.__sorted.items() if value != []])
+        return {key: value for key, value in self.__sorted.items() if value != []}
 
-    def get_listener_priority(self, event_name: str, listener: Callable) -> int:
+    def get_listener_priority(self, event_name: str, listener: Callable) -> Optional[Any]:
         """
         Get the listener priority for a specific event.
 
@@ -135,7 +143,7 @@ class EventDispatcher(AbstractEventDispatcher):
         :return:           The event listener priority
         """
         if event_name not in self.__listeners:
-            return
+            return None
 
         for priority, listeners in self.__listeners[event_name].items():
             try:
