@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 
 setup(
         name='evee',
@@ -12,13 +12,13 @@ setup(
                     'applications to communicate with one another by dispatching and listening for events.',
         long_description=open('README.md').read(),
         author='Juan Manuel Torres',
-        author_email='kinojman@gmail.com',
+        author_email='software@onema.io',
         url='https://github.com/onema/evee',
         download_url='https://github.com/onema/evee/archive/v%s.tar.gz' % __version__,
         packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
         zip_safe=True,
         test_suite='nose.collector',
-        tests_require=['nose', 'coverage'],
+        tests_require=['nose', 'coverage', 'codacy-coverage'],
         classifiers=[
             'Intended Audience :: Developers',
             'Operating System :: OS Independent',

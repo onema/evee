@@ -1,21 +1,14 @@
 language: python
 matrix:
   include:
-    - python: "3.3"
-    - python: "3.4"
-    - python: "3.5"
     - python: "3.6"
-    - python: "3.6-dev"
+    - python: "3.7"
     - python: "nightly"
   allow_failures:
-    - python: "3.6-dev" # 3.6 development branch
-    - python: "nightly" # currently points to 3.7-dev
-# command to install dependencies
-install:
-  - pip install -r requirements.txt
-  - pip install coveralls
-# command to run tests
+    - python: "nightly"
+
+# commands to run tests
 script:
   coverage run --omit=evee/abstract_event_dispatcher.py,evee/abstract_event_subscriber.py --source=evee setup.py test
 after_success:
-  coveralls
+  python-codacy-coverage -r coverage.xml
